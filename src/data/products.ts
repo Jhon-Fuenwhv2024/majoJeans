@@ -25,6 +25,7 @@ export type Product = {
   images: string[]
   featured?: boolean
   isNew?: boolean
+  bestSeller?: boolean
   /** Siempre true en este demo: marca el contenido como ficticio */
   isExample: true
 }
@@ -49,6 +50,7 @@ export const products: Product[] = [
     ],
     featured: true,
     isNew: true,
+    bestSeller: true,
     isExample: true,
   },
   {
@@ -67,6 +69,7 @@ export const products: Product[] = [
     ],
     images: ['/images/product-mom-light.jpg', '/images/collection-jeans.jpg'],
     featured: true,
+    bestSeller: true,
     isExample: true,
   },
   {
@@ -102,6 +105,7 @@ export const products: Product[] = [
       '/images/product-skinny-indigo.jpg',
     ],
     featured: true,
+    bestSeller: true,
     isExample: true,
   },
   {
@@ -177,6 +181,26 @@ export function getProductBySlug(slug: string): Product | undefined {
 
 export function getFeaturedProducts(): Product[] {
   return products.filter((p) => p.featured)
+}
+
+export function getBestSellers(): Product[] {
+  return products.filter((p) => p.bestSeller)
+}
+
+export function getNewProducts(): Product[] {
+  return products.filter((p) => p.isNew)
+}
+
+export function searchProducts(query: string): Product[] {
+  const q = query.trim().toLowerCase()
+  if (!q) return products
+  return products.filter(
+    (p) =>
+      p.name.toLowerCase().includes(q) ||
+      p.description.toLowerCase().includes(q) ||
+      p.category.toLowerCase().includes(q) ||
+      p.colors.some((c) => c.name.toLowerCase().includes(q)),
+  )
 }
 
 export function getProductsByCategory(category: StoreCategoryId): Product[] {

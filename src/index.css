@@ -204,12 +204,34 @@ textarea {
   animation: gold-shimmer 4.5s ease-in-out infinite;
 }
 
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-kenburns,
   .animate-fade-up,
   .animate-fade-up-delay,
   .animate-slide-in,
-  .animate-gold {
+  .animate-gold,
+  .marquee-track {
     animation: none;
   }
 }

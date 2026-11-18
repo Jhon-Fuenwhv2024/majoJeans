@@ -14,6 +14,7 @@ export function ShopPage() {
   const size = (params.get('talla') ?? '') as StoreSize | ''
   const maxPrice = Number(params.get('precio') ?? bounds.max)
   const sort = params.get('orden') ?? 'destacados'
+  const query = params.get('q') ?? ''
 
   const [draftMax, setDraftMax] = useState(maxPrice)
 
@@ -28,12 +29,23 @@ export function ShopPage() {
       list = list.filter((p) => p.sizes.includes(size))
     }
     list = list.filter((p) => p.price <= maxPrice)
+    if (query.trim()) {
+      const q = query.trim().toLowerCase()
+      list = list.filter(
+        (p) =>
+          p.name.toLowerCase().includes(q) ||
+          p.description.toLowerCase().includes(q) ||
+          p.colors.some((c) => c.name.toLowerCase().includes(q)),
+      )
+    }
     if (sort === 'precio-asc') list.sort((a, b) => a.price - b.price)
     if (sort === 'precio-desc') list.sort((a, b) => b.price - a.price)
     if (sort === 'nuevos')
       list.sort((a, b) => Number(b.isNew) - Number(a.isNew))
+    if (sort === 'favoritos')
+      list.sort((a, b) => Number(b.bestSeller) - Number(a.bestSeller))
     return list
-  }, [category, size, maxPrice, sort])
+  }, [category, size, maxPrice, sort, query])
 
   function updateParam(key: string, value: string) {
     const next = new URLSearchParams(params)
@@ -60,7 +72,9 @@ export function ShopPage() {
           <p className="text-xs tracking-[0.18em] text-[var(--muted)] uppercase">
             Catálogo
           </p>
-          <h1 className="mt-2 font-display text-4xl md:text-5xl">Tienda</h1>
+          <h1 className="mt-2 font-display text-4xl md:text-5xl">
+            {query ? `Resultados para “${query}”` : 'Tienda'}
+          </h1>
           <p className="mt-3 text-[var(--muted)]">
             Filtra por categoría, talla y precio. Todos los artículos están
             marcados como ejemplo.
@@ -68,7 +82,19 @@ export function ShopPage() {
         </header>
 
         <div className="grid gap-8 lg:grid-cols-[240px_1fr]">
-          <aside className="space-y-6 rounded-none border border-[var(--line)] p-4 h-fit lg:sticky lg:top-28">
+          <aside className="space-y-6 rounded-none border border-[var(--line)] p-4 h-fit lg:sticky lg:top-36">
+            <div>
+              <label htmlFor="q" className="text-xs tracking-[0.14em] uppercase text-[var(--muted)]">
+                Buscar
+              </label>
+              <input
+                id="q"
+                className="field mt-2"
+                value={query}
+                placeholder="Nombre o color…"
+                onChange={(e) => updateParam('q', e.target.value)}
+              />
+            </div>
             <div>
               <label htmlFor="categoria" className="text-xs tracking-[0.14em] uppercase text-[var(--muted)]">
                 Categoría
@@ -137,6 +163,7 @@ export function ShopPage() {
                 onChange={(e) => updateParam('orden', e.target.value)}
               >
                 <option value="destacados">Destacados</option>
+                <option value="favoritos">Favoritos</option>
                 <option value="nuevos">Novedades</option>
                 <option value="precio-asc">Precio: menor a mayor</option>
                 <option value="precio-desc">Precio: mayor a menor</option>
@@ -152,7 +179,7 @@ export function ShopPage() {
               <div className="border border-dashed border-[var(--line)] px-6 py-16 text-center">
                 <p className="font-display text-2xl">Sin resultados</p>
                 <p className="mt-2 text-[var(--muted)]">
-                  Prueba otras tallas o sube el precio máximo.
+                  Prueba otra búsqueda, tallas o sube el precio máximo.
                 </p>
                 <button
                   type="button"

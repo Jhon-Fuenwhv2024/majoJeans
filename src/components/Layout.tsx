@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import { Header } from './Header'
+import { CategoryStrip } from './CategoryStrip'
 import { Footer } from './Footer'
 import { CartDrawer } from './CartDrawer'
 import { WhatsAppButton } from './WhatsAppButton'
@@ -14,6 +15,7 @@ export function Layout() {
         Saltar al contenido
       </a>
       <Header />
+      <CategoryStrip />
       <main id="contenido" className="flex-1">
         <Outlet />
       </main>
