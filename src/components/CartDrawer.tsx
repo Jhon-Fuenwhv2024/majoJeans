@@ -56,7 +56,7 @@ export function CartDrawer() {
                   <li key={key} className="flex gap-3">
                     <img
                       src={item.image}
-                      alt=""
+                      alt={item.name}
                       className="h-24 w-20 object-cover bg-[var(--sand)]"
                     />
                     <div className="min-w-0 flex-1">
@@ -114,17 +114,17 @@ export function CartDrawer() {
           </div>
           {storeConfig.whatsappIsExample && (
             <p className="mb-3 text-xs text-amber-800">
-              El checkout usa un WhatsApp de ejemplo configurable en{' '}
+              El pedido se envía a un WhatsApp de ejemplo configurable en{' '}
               <code className="text-[11px]">src/config/store.ts</code>.
             </p>
           )}
           <Link
-            to="/checkout"
+            to="/pedido"
             onClick={closeCart}
             className={`btn-primary w-full text-center ${items.length === 0 ? 'pointer-events-none opacity-50' : ''}`}
             aria-disabled={items.length === 0}
           >
-            Ir al checkout
+            Finalizar pedido
           </Link>
         </div>
       </aside>

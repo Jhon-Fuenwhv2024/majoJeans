@@ -9,6 +9,7 @@ import { AboutPage } from './pages/AboutPage'
 import { ContactPage } from './pages/ContactPage'
 import { ShippingPage } from './pages/ShippingPage'
 import { ReturnsPage } from './pages/ReturnsPage'
+import { NotFoundPage } from './pages/NotFoundPage'
 
 export default function App() {
   return (
@@ -19,22 +20,13 @@ export default function App() {
             <Route index element={<HomePage />} />
             <Route path="tienda" element={<ShopPage />} />
             <Route path="producto/:slug" element={<ProductPage />} />
+            <Route path="pedido" element={<CheckoutPage />} />
             <Route path="checkout" element={<CheckoutPage />} />
             <Route path="nosotros" element={<AboutPage />} />
             <Route path="contacto" element={<ContactPage />} />
             <Route path="envios" element={<ShippingPage />} />
             <Route path="cambios" element={<ReturnsPage />} />
-            <Route
-              path="*"
-              element={
-                <div className="mx-auto max-w-6xl px-4 py-20 text-center">
-                  <h1 className="font-display text-3xl">Página no encontrada</h1>
-                  <a href="/" className="btn-primary mt-6 inline-flex">
-                    Volver al inicio
-                  </a>
-                </div>
-              }
-            />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

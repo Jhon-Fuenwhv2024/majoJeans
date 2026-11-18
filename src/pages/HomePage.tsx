@@ -7,19 +7,19 @@ import { getFeaturedProducts } from '../data/products'
 const collections = [
   {
     title: 'Jeans',
-    copy: 'Skinny, mom, cargo y wide leg.',
+    copy: 'Ajustados, tiro alto, cargo y pierna ancha.',
     to: '/tienda?categoria=jeans',
     image: '/images/collection-jeans.jpg',
   },
   {
-    title: 'Shorts',
-    copy: 'Denim liviano para el día a día.',
-    to: '/tienda?categoria=shorts',
+    title: 'Bermudas',
+    copy: 'Mezclilla liviana para el día a día.',
+    to: '/tienda?categoria=bermudas',
     image: '/images/product-shorts.jpg',
   },
   {
     title: 'Chaquetas',
-    copy: 'Capas esenciales en denim.',
+    copy: 'Capas esenciales en mezclilla.',
     to: '/tienda?categoria=chaquetas',
     image: '/images/product-jacket.jpg',
   },
@@ -35,7 +35,7 @@ export function HomePage() {
       <section className="relative min-h-[88svh] overflow-hidden">
         <img
           src="/images/hero-denim.jpg"
-          alt=""
+          alt="Modelo con jeans Majo Jeans (imagen de ejemplo)"
           className="absolute inset-0 h-full w-full object-cover animate-kenburns"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[var(--ink)]/75 via-[var(--ink)]/45 to-transparent" />
@@ -44,8 +44,8 @@ export function HomePage() {
             {storeConfig.brandName}
           </p>
           <h1 className="mt-4 max-w-md text-lg text-white/90 md:text-xl">
-            Denim para mujer, pensado en Colombia. Catálogo demo con pedidos por
-            WhatsApp.
+            Jeans para mujer, pensados en Colombia. Catálogo de demostración con
+            pedidos por WhatsApp.
           </h1>
           <div className="mt-8 flex flex-wrap gap-3 animate-fade-up-delay">
             <Link to="/tienda" className="btn-primary">
@@ -89,7 +89,7 @@ export function HomePage() {
             >
               <img
                 src={c.image}
-                alt=""
+                alt={`Colección ${c.title}`}
                 className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-[var(--ink)]/45 transition group-hover:bg-[var(--ink)]/35" />
@@ -130,7 +130,7 @@ export function HomePage() {
             La marca
           </p>
           <h2 className="mt-2 font-display text-3xl md:text-4xl">
-            Denim con identidad
+            Mezclilla con identidad
           </h2>
           <p className="mt-4 leading-relaxed text-[var(--muted)]">
             {storeConfig.bio} Sigue a @{storeConfig.instagramHandle} para

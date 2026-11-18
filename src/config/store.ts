@@ -8,7 +8,7 @@
 
 export const storeConfig = {
   brandName: 'Majo Jeans',
-  tagline: 'Denim colombiano con actitud',
+  tagline: 'Jeans colombianos con actitud',
   /** Handle público confirmado por el enlace de la marca */
   instagramHandle: 'majo_jeansoficial',
   instagramUrl: 'https://www.instagram.com/majo_jeansoficial',
@@ -22,7 +22,7 @@ export const storeConfig = {
    * EJEMPLO — bio inventada para el sitio demo.
    * Sustituye con la bio real de Instagram cuando la tengas.
    */
-  bio: 'Jeans y denim para mujer. Hecho en Colombia. Pedidos por WhatsApp.',
+  bio: 'Jeans y mezclilla para mujer. Hecho en Colombia. Pedidos por WhatsApp.',
   bioIsExample: true,
   email: 'hola@ejemplo-majojeans.co',
   emailIsExample: true,
@@ -38,19 +38,20 @@ export const storeConfig = {
   returnsNotes:
     'Política de cambios de ejemplo: 8 días hábiles con prenda sin uso y etiquetas.',
   seo: {
-    title: 'Majo Jeans | Tienda de denim en Colombia',
+    title: 'Majo Jeans | Tienda de jeans en Colombia',
     description:
-      'Tienda online de Majo Jeans. Jeans, shorts y chaquetas en denim. Precios en COP. Pedidos por WhatsApp.',
+      'Tienda en línea de Majo Jeans. Jeans, bermudas y chaquetas de mezclilla. Precios en COP. Pedidos por WhatsApp.',
     ogImage: '/images/hero-denim.jpg',
   },
   categories: [
     { id: 'jeans', label: 'Jeans', slug: 'jeans' },
-    { id: 'shorts', label: 'Shorts', slug: 'shorts' },
+    { id: 'bermudas', label: 'Bermudas', slug: 'bermudas' },
     { id: 'chaquetas', label: 'Chaquetas', slug: 'chaquetas' },
     { id: 'novedades', label: 'Novedades', slug: 'novedades' },
   ],
+  /** Tallas internacionales usadas en tiendas de Colombia */
   sizes: ['XS', 'S', 'M', 'L', 'XL'] as const,
-  /** Paleta inspirada en denim (no tomada del Instagram, no visible sin login) */
+  /** Paleta de ejemplo inspirada en mezclilla (no tomada del Instagram) */
   paletteNote:
     'Paleta de ejemplo: índigo, arena y marfil. Ajusta en index.css si el IG muestra otros tonos.',
 } as const

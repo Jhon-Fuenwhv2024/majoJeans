@@ -32,10 +32,10 @@ export type Product = {
 export const products: Product[] = [
   {
     id: 'ej-001',
-    slug: 'jean-skinny-indigo',
-    name: 'Jean Skinny Índigo',
+    slug: 'jean-ajustado-indigo',
+    name: 'Jean ajustado índigo',
     description:
-      'Ajuste ceñido que estiliza la silueta. Denim elástico de lavado índigo medio. Ideal para el día a día. (Producto de ejemplo)',
+      'Corte ceñido que estiliza la silueta. Mezclilla elástica de lavado índigo medio. Ideal para el día a día. (Producto de ejemplo)',
     price: 129900,
     category: 'jeans',
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
@@ -53,10 +53,10 @@ export const products: Product[] = [
   },
   {
     id: 'ej-002',
-    slug: 'jean-mom-claro',
-    name: 'Jean Mom Claro',
+    slug: 'jean-tiro-alto-claro',
+    name: 'Jean tiro alto claro',
     description:
-      'Corte mom de tiro medio y lavado claro. Cómodo, versátil y con caída suave. (Producto de ejemplo)',
+      'Corte de tiro alto y lavado claro. Cómodo, versátil y con caída suave. (Producto de ejemplo)',
     price: 139900,
     compareAtPrice: 159900,
     category: 'jeans',
@@ -71,10 +71,10 @@ export const products: Product[] = [
   },
   {
     id: 'ej-003',
-    slug: 'jean-cargo-denim',
-    name: 'Jean Cargo Denim',
+    slug: 'jean-cargo-mezclilla',
+    name: 'Jean cargo de mezclilla',
     description:
-      'Silueta recta con bolsillos cargo. Denim resistente en tono medio. (Producto de ejemplo)',
+      'Silueta recta con bolsillos laterales. Mezclilla resistente en tono medio. (Producto de ejemplo)',
     price: 149900,
     category: 'jeans',
     sizes: ['XS', 'S', 'M', 'L'],
@@ -89,10 +89,10 @@ export const products: Product[] = [
   },
   {
     id: 'ej-004',
-    slug: 'jean-skinny-negro',
-    name: 'Jean Skinny Negro',
+    slug: 'jean-ajustado-negro',
+    name: 'Jean ajustado negro',
     description:
-      'El básico que no falta. Skinny negro con stretch para máxima comodidad. (Producto de ejemplo)',
+      'El básico que no falta. Jean negro ceñido con tela elástica para máxima comodidad. (Producto de ejemplo)',
     price: 124900,
     category: 'jeans',
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
@@ -106,12 +106,12 @@ export const products: Product[] = [
   },
   {
     id: 'ej-005',
-    slug: 'short-denim-claro',
-    name: 'Short Denim Claro',
+    slug: 'bermuda-mezclilla-clara',
+    name: 'Bermuda de mezclilla clara',
     description:
-      'Short de tiro medio en lavado claro. Perfecto para clima cálido. (Producto de ejemplo)',
+      'Bermuda de tiro medio en lavado claro. Perfecta para clima cálido. (Producto de ejemplo)',
     price: 89900,
-    category: 'shorts',
+    category: 'bermudas',
     sizes: ['XS', 'S', 'M', 'L'],
     colors: [
       { id: 'claro', name: 'Lavado claro', hex: '#a8bdd0' },
@@ -124,12 +124,12 @@ export const products: Product[] = [
   },
   {
     id: 'ej-006',
-    slug: 'short-denim-medio',
-    name: 'Short Denim Medio',
+    slug: 'bermuda-mezclilla-media',
+    name: 'Bermuda de mezclilla media',
     description:
-      'Short clásico con detalles desgastados suaves. (Producto de ejemplo)',
+      'Bermuda clásica con detalles desgastados suaves. (Producto de ejemplo)',
     price: 84900,
-    category: 'shorts',
+    category: 'bermudas',
     sizes: ['S', 'M', 'L', 'XL'],
     colors: [{ id: 'medio', name: 'Azul medio', hex: '#5b7c99' }],
     images: ['/images/product-shorts.jpg', '/images/product-mom-light.jpg'],
@@ -137,10 +137,10 @@ export const products: Product[] = [
   },
   {
     id: 'ej-007',
-    slug: 'chaqueta-denim-clasica',
-    name: 'Chaqueta Denim Clásica',
+    slug: 'chaqueta-mezclilla-clasica',
+    name: 'Chaqueta clásica de mezclilla',
     description:
-      'Chaqueta oversized en denim azul. Capas esenciales para cualquier look. (Producto de ejemplo)',
+      'Chaqueta holgada en mezclilla azul. Ideal para combinar en capas. (Producto de ejemplo)',
     price: 179900,
     category: 'chaquetas',
     sizes: ['S', 'M', 'L', 'XL'],
@@ -154,8 +154,8 @@ export const products: Product[] = [
   },
   {
     id: 'ej-008',
-    slug: 'jean-wide-leg',
-    name: 'Jean Wide Leg',
+    slug: 'jean-pierna-ancha',
+    name: 'Jean de pierna ancha',
     description:
       'Pierna ancha y tiro alto. Silueta contemporánea con caída fluida. (Producto de ejemplo)',
     price: 154900,

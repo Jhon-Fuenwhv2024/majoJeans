@@ -137,7 +137,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       if (storeConfig.whatsappIsExample) {
         lines.push(
           '',
-          '(Pedido generado desde la tienda demo — confirma el número de WhatsApp real)',
+          '(Pedido generado desde la tienda de demostración — confirma el número de WhatsApp real)',
         )
       }
       return lines.join('\n')

@@ -7,7 +7,7 @@ const nav = [
   { to: '/', label: 'Inicio' },
   { to: '/tienda', label: 'Tienda' },
   { to: '/tienda?categoria=jeans', label: 'Jeans' },
-  { to: '/tienda?categoria=shorts', label: 'Shorts' },
+  { to: '/tienda?categoria=bermudas', label: 'Bermudas' },
   { to: '/tienda?categoria=chaquetas', label: 'Chaquetas' },
   { to: '/nosotros', label: 'Nosotros' },
   { to: '/contacto', label: 'Contacto' },
@@ -49,7 +49,7 @@ export function Header() {
           {storeConfig.brandName}
         </Link>
 
-        <nav className="hidden items-center gap-5 text-[13px] tracking-[0.08em] uppercase md:flex" aria-label="Principal">
+        <nav className="hidden items-center gap-5 text-[13px] tracking-[0.08em] uppercase md:flex" aria-label="Navegación principal">
           {nav.map((item) => (
             <NavLink
               key={item.to}
@@ -88,7 +88,7 @@ export function Header() {
       {menuOpen && (
         <nav
           className="border-t border-[var(--line)] bg-[var(--bg)] px-4 py-3 md:hidden"
-          aria-label="Móvil"
+          aria-label="Menú móvil"
         >
           <ul className="flex flex-col gap-1">
             {nav.map((item) => (

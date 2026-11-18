@@ -1,8 +1,8 @@
 # Majo Jeans — tienda web
 
-Tienda demo en español (Colombia, precios en COP) para la marca **Majo Jeans** (`@majo_jeansoficial`). Catálogo con filtros, ficha de producto, carrito en `localStorage` y checkout por WhatsApp. Pensada para desplegar en **Cloudflare Pages**.
+Tienda de demostración en español (Colombia, precios en COP) para la marca **Majo Jeans** (`@majo_jeansoficial`). Catálogo con filtros, ficha de producto, carrito en `localStorage` y cierre de pedido por WhatsApp. Lista para desplegar en **Cloudflare Pages**.
 
-> Los productos, precios, WhatsApp y correo son **de ejemplo** (el Instagram no expuso bio/contacto sin iniciar sesión). Edítalos en los archivos de datos antes de publicar.
+> Los productos, precios, WhatsApp y correo son **de ejemplo** (Instagram no expuso bio ni contacto sin iniciar sesión). Edítalos en los archivos de datos antes de publicar.
 
 ## Requisitos
 
@@ -16,12 +16,12 @@ npm install
 npm run dev
 ```
 
-Abre la URL que imprime Vite (por defecto `http://127.0.0.1:43127`).
+Abre la URL que muestra Vite (por defecto `http://127.0.0.1:43127`).
 
-Otros scripts:
+Otros comandos:
 
 ```bash
-npm run build    # salida en dist/
+npm run build    # genera la carpeta dist/
 npm run preview  # sirve dist/ en el puerto 43127
 npm run lint     # oxlint
 ```
@@ -30,10 +30,10 @@ npm run lint     # oxlint
 
 Archivo: [`src/data/products.ts`](src/data/products.ts)
 
-- Agrega o modifica objetos en el array `products`.
+- Agrega o modifica objetos en el arreglo `products`.
 - Campos clave: `name`, `price` (COP, sin decimales), `category`, `sizes`, `colors`, `images`.
-- Coloca las fotos en `public/images/` y referencia rutas como `/images/mi-foto.jpg`.
-- Marca `isExample: true` solo mientras sea contenido ficticio.
+- Coloca las fotos en `public/images/` y úsalas como `/images/mi-foto.jpg`.
+- Deja `isExample: true` solo mientras el contenido sea ficticio.
 
 ## Editar configuración de la tienda
 
@@ -41,17 +41,17 @@ Archivo: [`src/config/store.ts`](src/config/store.ts)
 
 - `brandName`, `instagramHandle`, `instagramUrl`
 - `whatsappNumber` — formato internacional sin `+` (ej. `573001112233`)
-- `bio`, `email`, textos de envíos/cambios, SEO
+- `bio`, `email`, textos de envíos/cambios y SEO
 - Categorías y tallas globales
 
-El botón flotante y el checkout usan `https://wa.me/{whatsappNumber}`.
+El botón flotante y el pedido usan `https://wa.me/{whatsappNumber}`.
 
 ## Desplegar en Cloudflare Pages
 
 1. `npm run build` → carpeta `dist/`
-2. En Cloudflare Pages: framework preset **Vite**, build command `npm run build`, output directory `dist`
-3. El archivo `public/_redirects` (`/* /index.html 200`) se copia a `dist` para el fallback SPA
-4. Verifica que ningún asset supere 25 MiB (las imágenes de demo están por debajo)
+2. En Cloudflare Pages: plantilla **Vite**, comando de compilación `npm run build`, directorio de salida `dist`
+3. El archivo `public/_redirects` (`/* /index.html 200`) se copia a `dist` para el respaldo SPA
+4. Verifica que ningún archivo supere 25 MiB
 
 Publicación directa con Wrangler (opcional):
 
@@ -67,22 +67,22 @@ src/
   config/store.ts      # marca, WhatsApp, SEO
   data/products.ts     # catálogo
   context/CartContext.tsx
-  pages/               # inicio, tienda, producto, checkout, etc.
+  pages/               # inicio, tienda, producto, pedido, etc.
 public/
   _redirects           # SPA en Cloudflare Pages
   images/              # fotos del catálogo
 ```
 
-## Datos del Instagram vs ejemplo
+## Datos del Instagram frente a ejemplo
 
 | Dato | Origen |
 |------|--------|
 | Nombre de marca Majo Jeans | Solicitado + handle `@majo_jeansoficial` |
 | URL de Instagram | Pública |
-| Bio, WhatsApp, correo, dirección, productos, precios | **Ejemplo** (IG no legible sin login) |
-| Paleta visual | **Ejemplo** inspirada en denim (índigo / arena / marfil) |
+| Bio, WhatsApp, correo, dirección, productos, precios | **Ejemplo** (IG no legible sin inicio de sesión) |
+| Paleta visual | **Ejemplo** inspirada en mezclilla (índigo / arena / marfil) |
 | Estructura de tienda | Inspirada en Shop Martina (sin copiar textos, logos ni imágenes) |
 
 ## Licencia
 
-Proyecto demo para la marca. Sustituye el contenido de ejemplo antes de usarlo en producción.
+Proyecto de demostración para la marca. Sustituye el contenido de ejemplo antes de usarlo en producción.

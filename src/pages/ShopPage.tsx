@@ -51,7 +51,7 @@ export function ShopPage() {
     <>
       <Seo
         title="Tienda"
-        description="Catálogo de jeans, shorts y chaquetas Majo Jeans. Precios en COP."
+        description="Catálogo de jeans, bermudas y chaquetas Majo Jeans. Precios en COP."
         path="/tienda"
       />
 

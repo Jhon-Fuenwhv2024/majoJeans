@@ -26,13 +26,13 @@ export function CheckoutPage() {
   return (
     <>
       <Seo
-        title="Checkout"
+        title="Finalizar pedido"
         description="Confirma tu pedido y envíalo por WhatsApp."
-        path="/checkout"
+        path="/pedido"
       />
 
       <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
-        <h1 className="font-display text-4xl md:text-5xl">Checkout</h1>
+        <h1 className="font-display text-4xl md:text-5xl">Finalizar pedido</h1>
         <p className="mt-3 max-w-xl text-[var(--muted)]">
           No hay pasarela de pagos. Al confirmar se abre WhatsApp con el resumen
           del pedido para coordinar pago y envío.

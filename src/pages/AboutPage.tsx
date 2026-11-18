@@ -6,7 +6,7 @@ export function AboutPage() {
     <>
       <Seo
         title="Nosotros"
-        description={`Conoce ${storeConfig.brandName}, marca de denim colombiana.`}
+        description={`Conoce ${storeConfig.brandName}, marca de jeans colombiana.`}
         path="/nosotros"
       />
       <div className="mx-auto max-w-3xl px-4 py-14 md:py-20">
@@ -41,7 +41,7 @@ export function AboutPage() {
         </p>
         <img
           src="/images/hero-denim.jpg"
-          alt="Estilo denim Majo Jeans (imagen de ejemplo)"
+          alt="Estilo de jeans Majo Jeans (imagen de ejemplo)"
           className="mt-10 aspect-[16/9] w-full object-cover"
         />
       </div>

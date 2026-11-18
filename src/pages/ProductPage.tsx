@@ -98,7 +98,11 @@ export function ProductPage() {
                     className={`overflow-hidden border-2 ${i === imageIdx ? 'border-[var(--accent)]' : 'border-transparent'}`}
                     aria-label={`Ver imagen ${i + 1}`}
                   >
-                    <img src={img} alt="" className="h-20 w-16 object-cover" />
+                    <img
+                      src={img}
+                      alt={`Miniatura ${i + 1} de ${product.name}`}
+                      className="h-20 w-16 object-cover"
+                    />
                   </button>
                 ))}
               </div>
