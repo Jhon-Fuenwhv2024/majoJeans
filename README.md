@@ -16,13 +16,13 @@ npm install
 npm run dev
 ```
 
-Abre la URL que muestra Vite (por defecto `http://127.0.0.1:43127`).
+Abre la URL que muestra Vite (por defecto `http://127.0.0.1:43127` en desarrollo).
 
 Otros comandos:
 
 ```bash
 npm run build    # genera la carpeta dist/
-npm run preview  # sirve dist/ en el puerto 43127
+npm run preview  # sirve dist/ en el puerto 43128
 npm run lint     # oxlint
 ```
 
@@ -46,19 +46,26 @@ Archivo: [`src/config/store.ts`](src/config/store.ts)
 
 El botón flotante y el pedido usan `https://wa.me/{whatsappNumber}`.
 
-## Desplegar en Cloudflare Pages
+## Desplegar en Cloudflare Pages (permanente)
 
-1. `npm run build` → carpeta `dist/`
-2. En Cloudflare Pages: plantilla **Vite**, comando de compilación `npm run build`, directorio de salida `dist`
-3. El archivo `public/_redirects` (`/* /index.html 200`) se copia a `dist` para el respaldo SPA
-4. Verifica que ningún archivo supere 25 MiB
+Listo para Pages: build `npm run build`, salida `dist/`, fallback SPA en `public/_redirects`.
 
-Publicación directa con Wrangler (opcional):
+### Opción A — Wrangler (recomendado)
 
 ```bash
 npm run build
 npx wrangler pages deploy dist --project-name majo-jeans
 ```
+
+La primera vez Wrangler pedirá iniciar sesión en Cloudflare y creará el proyecto `majo-jeans` si no existe.
+
+### Opción B — Dashboard de Cloudflare Pages
+
+1. `npm run build` → carpeta `dist/`
+2. Conecta el repo o sube `dist/`
+3. Plantilla **Vite**, comando de compilación `npm run build`, directorio de salida `dist`
+4. Confirma que `dist/_redirects` tiene `/* /index.html 200`
+5. Ningún archivo debe superar 25 MiB
 
 ## Estructura útil
 
