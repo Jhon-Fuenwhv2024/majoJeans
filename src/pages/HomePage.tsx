@@ -1,0 +1,151 @@
+import { Link } from 'react-router-dom'
+import { Seo } from '../components/Seo'
+import { ProductCard } from '../components/ProductCard'
+import { storeConfig } from '../config/store'
+import { getFeaturedProducts } from '../data/products'
+
+const collections = [
+  {
+    title: 'Jeans',
+    copy: 'Skinny, mom, cargo y wide leg.',
+    to: '/tienda?categoria=jeans',
+    image: '/images/collection-jeans.jpg',
+  },
+  {
+    title: 'Shorts',
+    copy: 'Denim liviano para el día a día.',
+    to: '/tienda?categoria=shorts',
+    image: '/images/product-shorts.jpg',
+  },
+  {
+    title: 'Chaquetas',
+    copy: 'Capas esenciales en denim.',
+    to: '/tienda?categoria=chaquetas',
+    image: '/images/product-jacket.jpg',
+  },
+]
+
+export function HomePage() {
+  const featured = getFeaturedProducts()
+
+  return (
+    <>
+      <Seo path="/" />
+
+      <section className="relative min-h-[88svh] overflow-hidden">
+        <img
+          src="/images/hero-denim.jpg"
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover animate-kenburns"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--ink)]/75 via-[var(--ink)]/45 to-transparent" />
+        <div className="relative mx-auto flex min-h-[88svh] max-w-6xl flex-col justify-end px-4 pb-16 pt-28 md:justify-center md:pb-24">
+          <p className="animate-fade-up font-display text-5xl text-white md:text-7xl lg:text-8xl">
+            {storeConfig.brandName}
+          </p>
+          <h1 className="mt-4 max-w-md text-lg text-white/90 md:text-xl">
+            Denim para mujer, pensado en Colombia. Catálogo demo con pedidos por
+            WhatsApp.
+          </h1>
+          <div className="mt-8 flex flex-wrap gap-3 animate-fade-up-delay">
+            <Link to="/tienda" className="btn-primary">
+              Ver tienda
+            </Link>
+            <a
+              href={storeConfig.instagramUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="btn-ghost border-white/40 text-white hover:bg-white/10"
+            >
+              Instagram
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-16 md:py-20">
+        <div className="mb-8 flex items-end justify-between gap-4">
+          <div>
+            <p className="text-xs tracking-[0.18em] text-[var(--muted)] uppercase">
+              Colecciones
+            </p>
+            <h2 className="mt-2 font-display text-3xl md:text-4xl">
+              Elige tu silueta
+            </h2>
+          </div>
+          <Link
+            to="/tienda"
+            className="hidden text-sm tracking-[0.1em] uppercase text-[var(--accent)] underline-offset-4 hover:underline md:inline"
+          >
+            Ver todo
+          </Link>
+        </div>
+        <div className="grid gap-4 md:grid-cols-3">
+          {collections.map((c) => (
+            <Link
+              key={c.title}
+              to={c.to}
+              className="group relative block min-h-56 overflow-hidden"
+            >
+              <img
+                src={c.image}
+                alt=""
+                className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-[var(--ink)]/45 transition group-hover:bg-[var(--ink)]/35" />
+              <div className="relative flex h-full flex-col justify-end p-5 text-white">
+                <h3 className="font-display text-3xl">{c.title}</h3>
+                <p className="mt-1 text-sm text-white/80">{c.copy}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="border-y border-[var(--line)] bg-[var(--paper)]">
+        <div className="mx-auto max-w-6xl px-4 py-16 md:py-20">
+          <div className="mb-10 max-w-xl">
+            <p className="text-xs tracking-[0.18em] text-[var(--muted)] uppercase">
+              Destacados
+            </p>
+            <h2 className="mt-2 font-display text-3xl md:text-4xl">
+              Lo más pedido (ejemplo)
+            </h2>
+            <p className="mt-3 text-[var(--muted)]">
+              Productos y precios de demostración. Edítalos en{' '}
+              <code className="text-sm">src/data/products.ts</code>.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 md:gap-6">
+            {featured.map((p) => (
+              <ProductCard key={p.id} product={p} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto grid max-w-6xl gap-8 px-4 py-16 md:grid-cols-2 md:items-center md:py-20">
+        <div>
+          <p className="text-xs tracking-[0.18em] text-[var(--muted)] uppercase">
+            La marca
+          </p>
+          <h2 className="mt-2 font-display text-3xl md:text-4xl">
+            Denim con identidad
+          </h2>
+          <p className="mt-4 leading-relaxed text-[var(--muted)]">
+            {storeConfig.bio} Sigue a @{storeConfig.instagramHandle} para
+            lanzamientos y looks del día.
+          </p>
+          <Link to="/nosotros" className="btn-primary mt-6 inline-flex">
+            Conocer la marca
+          </Link>
+        </div>
+        <img
+          src="/images/collection-jeans.jpg"
+          alt="Selección de jeans Majo Jeans (imagen de ejemplo)"
+          className="aspect-[4/3] w-full object-cover"
+        />
+      </section>
+    </>
+  )
+}
