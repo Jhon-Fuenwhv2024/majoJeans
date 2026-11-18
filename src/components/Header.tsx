@@ -70,7 +70,7 @@ export function Header() {
 
         {/* Centro: navegación (no se solapa con el logo) */}
         <nav
-          className="hidden min-w-0 justify-self-center md:flex md:flex-wrap md:items-center md:justify-center md:gap-x-4 md:gap-y-1 lg:gap-x-5"
+          className="hidden min-w-0 justify-self-center md:flex md:flex-wrap md:items-center md:justify-center md:gap-x-5 md:gap-y-1 lg:gap-x-7"
           aria-label="Navegación principal"
         >
           {nav.map((item) => (
