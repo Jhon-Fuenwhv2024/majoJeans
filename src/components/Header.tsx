@@ -19,14 +19,14 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-[var(--line)] bg-[color-mix(in_srgb,var(--bg)_92%,transparent)] backdrop-blur-md">
-      <div className="bg-[var(--ink)] px-4 py-2 text-center text-[11px] tracking-[0.14em] text-[var(--paper)] uppercase">
+      <div className="bg-[var(--ink)] px-4 py-2 text-center text-[11px] tracking-[0.18em] text-[var(--gold-shine)] uppercase">
         {storeConfig.announcement}
       </div>
 
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 md:py-4">
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-[var(--line)] md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center border border-[var(--line)] text-[var(--ink)] md:hidden"
           aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((v) => !v)}
@@ -43,19 +43,37 @@ export function Header() {
 
         <Link
           to="/"
-          className="font-display text-2xl tracking-[0.04em] text-[var(--ink)] md:text-3xl"
+          className="flex items-center gap-2"
           onClick={() => setMenuOpen(false)}
+          aria-label={storeConfig.brandName}
         >
-          {storeConfig.brandName}
+          <span className="brand-ring animate-gold shrink-0">
+            <img
+              src={storeConfig.logoSrc}
+              alt=""
+              className="h-11 w-11 rounded-full object-cover md:h-12 md:w-12"
+            />
+          </span>
+          <span className="hidden sm:flex flex-col leading-none">
+            <span className="font-display text-lg text-[var(--accent-deep)] md:text-xl">
+              Majo
+            </span>
+            <span className="mt-0.5 text-[10px] tracking-[0.28em] text-[var(--muted)] uppercase">
+              Jeans
+            </span>
+          </span>
         </Link>
 
-        <nav className="hidden items-center gap-5 text-[13px] tracking-[0.08em] uppercase md:flex" aria-label="Navegación principal">
+        <nav
+          className="hidden items-center gap-5 text-[12px] tracking-[0.14em] uppercase md:flex"
+          aria-label="Navegación principal"
+        >
           {nav.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
               className={({ isActive }) =>
-                `transition-colors hover:text-[var(--accent)] ${isActive ? 'text-[var(--accent)]' : 'text-[var(--muted)]'}`
+                `transition-colors hover:text-[var(--accent-deep)] ${isActive ? 'text-[var(--accent-deep)]' : 'text-[var(--muted)]'}`
               }
             >
               {item.label}
@@ -66,7 +84,7 @@ export function Header() {
         <button
           type="button"
           onClick={openCart}
-          className="relative inline-flex h-10 items-center gap-2 rounded-md border border-[var(--line)] px-3 text-sm"
+          className="relative inline-flex h-10 items-center gap-2 border border-[var(--line)] px-3 text-sm text-[var(--ink)]"
           aria-label={`Abrir carrito, ${itemCount} artículos`}
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
@@ -78,7 +96,7 @@ export function Header() {
           </svg>
           <span className="hidden sm:inline">Carrito</span>
           {itemCount > 0 && (
-            <span className="absolute -right-1.5 -top-1.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-[var(--accent)] px-1 text-[11px] text-white">
+            <span className="absolute -right-1.5 -top-1.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-[var(--accent)] px-1 text-[11px] font-semibold text-[var(--ink)]">
               {itemCount}
             </span>
           )}
@@ -95,7 +113,7 @@ export function Header() {
               <li key={item.to}>
                 <NavLink
                   to={item.to}
-                  className="block py-2 text-sm tracking-[0.08em] uppercase text-[var(--ink)]"
+                  className="block py-2 text-sm tracking-[0.12em] uppercase text-[var(--ink)]"
                   onClick={() => setMenuOpen(false)}
                 >
                   {item.label}

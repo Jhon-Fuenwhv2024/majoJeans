@@ -6,31 +6,37 @@ export function AboutPage() {
     <>
       <Seo
         title="Nosotros"
-        description={`Conoce ${storeConfig.brandName}, marca de jeans colombiana.`}
+        description={`Conoce ${storeConfig.brandName}: ${storeConfig.tagline}`}
         path="/nosotros"
       />
       <div className="mx-auto max-w-3xl px-4 py-14 md:py-20">
-        <p className="text-xs tracking-[0.18em] text-[var(--muted)] uppercase">
-          Nosotros
-        </p>
-        <h1 className="mt-2 font-display text-4xl md:text-5xl">
-          {storeConfig.brandName}
-        </h1>
-        <p className="mt-6 text-lg leading-relaxed text-[var(--muted)]">
+        <div className="flex flex-col items-center text-center">
+          <span className="brand-ring animate-gold">
+            <img
+              src={storeConfig.logoSrc}
+              alt={storeConfig.brandName}
+              className="h-28 w-28 rounded-full object-cover md:h-36 md:w-36"
+            />
+          </span>
+          <p className="mt-6 text-xs tracking-[0.18em] text-[var(--muted)] uppercase">
+            Nosotros
+          </p>
+          <h1 className="mt-2 font-display text-4xl text-[var(--accent-deep)] md:text-5xl">
+            Majo Jeans
+          </h1>
+          <p className="font-script mt-4 text-3xl text-[var(--accent)] md:text-4xl">
+            {storeConfig.tagline}
+          </p>
+        </div>
+
+        <p className="mt-10 text-center text-lg leading-relaxed text-[var(--muted)]">
           {storeConfig.bio}
         </p>
-        {storeConfig.bioIsExample && (
-          <p className="mt-4 rounded-md border border-amber-300 bg-amber-50 px-3 py-2 text-sm text-amber-900">
-            Este texto es de ejemplo: la bio pública de Instagram no estuvo
-            disponible sin iniciar sesión. Actualízala en{' '}
-            <code>src/config/store.ts</code>.
-          </p>
-        )}
-        <p className="mt-6 leading-relaxed text-[var(--muted)]">
-          Esta tienda web es una vitrina para explorar el catálogo, armar el
+        <p className="mt-6 text-center leading-relaxed text-[var(--muted)]">
+          Esta tienda es la vitrina oficial para explorar el catálogo, armar el
           carrito y cerrar el pedido por WhatsApp. Síguenos en Instagram{' '}
           <a
-            className="text-[var(--accent)] underline-offset-2 hover:underline"
+            className="text-[var(--accent-deep)] underline-offset-2 hover:underline"
             href={storeConfig.instagramUrl}
             target="_blank"
             rel="noreferrer"

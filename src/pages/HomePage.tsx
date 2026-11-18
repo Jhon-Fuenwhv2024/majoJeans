@@ -38,15 +38,32 @@ export function HomePage() {
           alt="Modelo con jeans Majo Jeans (imagen de ejemplo)"
           className="absolute inset-0 h-full w-full object-cover animate-kenburns"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[var(--ink)]/75 via-[var(--ink)]/45 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--ink)]/80 via-[var(--ink)]/50 to-[var(--ink)]/15" />
         <div className="relative mx-auto flex min-h-[88svh] max-w-6xl flex-col justify-end px-4 pb-16 pt-28 md:justify-center md:pb-24">
-          <p className="animate-fade-up font-display text-5xl text-white md:text-7xl lg:text-8xl">
-            {storeConfig.brandName}
-          </p>
-          <h1 className="mt-4 max-w-md text-lg text-white/90 md:text-xl">
-            Jeans para mujer, pensados en Colombia. Catálogo de demostración con
-            pedidos por WhatsApp.
+          <div className="animate-fade-up flex items-center gap-4 md:gap-6">
+            <span className="brand-ring animate-gold shrink-0 shadow-lg">
+              <img
+                src={storeConfig.logoSrc}
+                alt=""
+                className="h-20 w-20 rounded-full object-cover md:h-28 md:w-28"
+              />
+            </span>
+            <div>
+              <p className="font-display text-4xl text-[var(--gold-shine)] md:text-6xl lg:text-7xl">
+                Majo
+              </p>
+              <p className="mt-1 text-xs tracking-[0.42em] text-white/80 uppercase md:text-sm">
+                Jeans
+              </p>
+            </div>
+          </div>
+          <h1 className="font-script animate-fade-up-delay mt-5 max-w-lg text-3xl text-[var(--gold-shine)] md:text-4xl">
+            {storeConfig.tagline}
           </h1>
+          <p className="mt-3 max-w-md text-base text-white/85 md:text-lg">
+            Jeans para mujer con identidad. Compra en línea y confirma tu pedido
+            por WhatsApp.
+          </p>
           <div className="mt-8 flex flex-wrap gap-3 animate-fade-up-delay">
             <Link to="/tienda" className="btn-primary">
               Ver tienda
@@ -55,9 +72,9 @@ export function HomePage() {
               href={storeConfig.instagramUrl}
               target="_blank"
               rel="noreferrer"
-              className="btn-ghost border-white/40 text-white hover:bg-white/10"
+              className="btn-ghost border-[var(--gold)]/50 text-[var(--gold-shine)]"
             >
-              Instagram
+              @{storeConfig.instagramHandle}
             </a>
           </div>
         </div>
@@ -130,11 +147,14 @@ export function HomePage() {
             La marca
           </p>
           <h2 className="mt-2 font-display text-3xl md:text-4xl">
-            Mezclilla con identidad
+            Hecho con propósito
           </h2>
+          <p className="font-script mt-3 text-3xl text-[var(--accent-deep)]">
+            {storeConfig.tagline}
+          </p>
           <p className="mt-4 leading-relaxed text-[var(--muted)]">
             {storeConfig.bio} Sigue a @{storeConfig.instagramHandle} para
-            lanzamientos y looks del día.
+            lanzamientos y estilos del día.
           </p>
           <Link to="/nosotros" className="btn-primary mt-6 inline-flex">
             Conocer la marca

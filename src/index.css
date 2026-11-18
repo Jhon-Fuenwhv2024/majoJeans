@@ -1,24 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap');
 @import 'tailwindcss';
 
 :root {
-  --ink: #1c2430;
-  --bg: #f6f3ee;
-  --paper: #efebe3;
-  --sand: #d9d2c5;
-  --muted: #66707d;
-  --line: #d7d0c4;
-  --accent: #3a5674;
-  --accent-soft: #9eb0c2;
+  /* Paleta del logo oficial: beige crema + oro */
+  --ink: #2a2218;
+  --bg: #f4eee4;
+  --paper: #ebe3d4;
+  --sand: #ddd2bf;
+  --muted: #7a6f60;
+  --line: #d2c4a8;
+  --accent: #b8953d;
+  --accent-deep: #8f722c;
+  --accent-soft: #e5d5a8;
+  --gold: #c9a84a;
+  --gold-shine: #e0c36a;
 
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'Outfit', system-ui, sans-serif;
+  --font-display: 'Cinzel', 'Times New Roman', serif;
+  --font-sans: 'Montserrat', system-ui, sans-serif;
+  --font-script: 'Great Vibes', cursive;
 
   color: var(--ink);
   background:
-    radial-gradient(1200px 600px at 10% -10%, #e7edf3 0%, transparent 55%),
-    radial-gradient(900px 500px at 100% 0%, #ebe4d6 0%, transparent 50%),
-    var(--bg);
+    radial-gradient(1000px 520px at 8% -8%, #faf6ee 0%, transparent 55%),
+    radial-gradient(800px 480px at 100% 0%, #e8d9b5 0%, transparent 48%),
+    linear-gradient(180deg, #f7f1e7 0%, var(--bg) 40%, #efe6d6 100%);
   font-family: var(--font-sans);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -62,8 +67,16 @@ textarea {
 
 .font-display {
   font-family: var(--font-display);
-  font-weight: 500;
-  letter-spacing: 0.01em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.font-script {
+  font-family: var(--font-script);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: none;
 }
 
 .btn-primary {
@@ -71,22 +84,21 @@ textarea {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: var(--ink);
-  color: #fff;
+  background: linear-gradient(180deg, var(--gold-shine) 0%, var(--accent) 55%, var(--accent-deep) 100%);
+  color: #1f180f;
   padding: 0.85rem 1.4rem;
-  font-size: 0.78rem;
-  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  border: 1px solid var(--ink);
+  border: 1px solid var(--accent-deep);
   transition:
-    background 180ms ease,
-    color 180ms ease,
+    filter 180ms ease,
     transform 180ms ease;
 }
 
 .btn-primary:hover {
-  background: var(--accent);
-  border-color: var(--accent);
+  filter: brightness(1.05);
 }
 
 .btn-primary:active {
@@ -99,17 +111,24 @@ textarea {
   justify-content: center;
   gap: 0.5rem;
   padding: 0.85rem 1.4rem;
-  font-size: 0.78rem;
-  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  border: 1px solid var(--line);
-  transition: background 180ms ease;
+  border: 1px solid color-mix(in srgb, var(--gold) 70%, transparent);
+  color: inherit;
+  transition: background 180ms ease, border-color 180ms ease;
+}
+
+.btn-ghost:hover {
+  border-color: var(--gold);
+  background: color-mix(in srgb, var(--gold) 12%, transparent);
 }
 
 .field {
   width: 100%;
   border: 1px solid var(--line);
-  background: #fff;
+  background: #fffdf8;
   padding: 0.7rem 0.85rem;
   color: var(--ink);
 }
@@ -117,6 +136,13 @@ textarea {
 .field:focus {
   outline: 2px solid color-mix(in srgb, var(--accent) 45%, transparent);
   outline-offset: 1px;
+}
+
+.brand-ring {
+  border: 1px solid color-mix(in srgb, var(--gold) 55%, transparent);
+  border-radius: 9999px;
+  padding: 0.35rem;
+  background: color-mix(in srgb, #fff 55%, transparent);
 }
 
 @keyframes kenburns {
@@ -148,6 +174,16 @@ textarea {
   }
 }
 
+@keyframes gold-shimmer {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.08);
+  }
+}
+
 .animate-kenburns {
   animation: kenburns 18s ease-out forwards;
 }
@@ -164,11 +200,16 @@ textarea {
   animation: slide-in 220ms ease-out;
 }
 
+.animate-gold {
+  animation: gold-shimmer 4.5s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-kenburns,
   .animate-fade-up,
   .animate-fade-up-delay,
-  .animate-slide-in {
+  .animate-slide-in,
+  .animate-gold {
     animation: none;
   }
 }

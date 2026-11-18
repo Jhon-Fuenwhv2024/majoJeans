@@ -1,47 +1,47 @@
 /**
  * Configuración central de la tienda Majo Jeans.
  *
- * Datos marcados como `isExample: true` NO provienen del Instagram público
- * (la bio, WhatsApp y detalles no fueron visibles sin iniciar sesión).
- * Reemplázalos con la información real antes de publicar.
+ * Del logo / Instagram oficiales:
+ * - Marca, handle y slogan visibles en el logo.
+ * WhatsApp y correo siguen siendo de ejemplo hasta confirmarlos.
  */
 
 export const storeConfig = {
   brandName: 'Majo Jeans',
-  tagline: 'Jeans colombianos con actitud',
-  /** Handle público confirmado por el enlace de la marca */
+  /** Slogan del logo oficial */
+  tagline: 'La moda también es una forma de adorar',
+  logoSrc: '/images/logo-majo-jeans.png',
+  /** Handle oficial */
   instagramHandle: 'majo_jeansoficial',
   instagramUrl: 'https://www.instagram.com/majo_jeansoficial',
   /**
-   * EJEMPLO — no se pudo leer un WhatsApp público sin login en Instagram.
+   * EJEMPLO — aún no confirmado públicamente en Instagram sin login.
    * Formato internacional sin + ni espacios (ej. 57XXXXXXXXXX).
    */
   whatsappNumber: '573000000000',
   whatsappIsExample: true,
   /**
-   * EJEMPLO — bio inventada para el sitio demo.
-   * Sustituye con la bio real de Instagram cuando la tengas.
+   * Basado en el slogan del logo; amplía con la bio real cuando la tengas.
    */
-  bio: 'Jeans y mezclilla para mujer. Hecho en Colombia. Pedidos por WhatsApp.',
-  bioIsExample: true,
+  bio: 'La moda también es una forma de adorar. Jeans y mezclilla para mujer. Pedidos por WhatsApp.',
+  bioIsExample: false,
   email: 'hola@ejemplo-majojeans.co',
   emailIsExample: true,
-  /** Sin dirección física real verificada públicamente */
   city: 'Colombia',
   currency: 'COP' as const,
   locale: 'es-CO',
-  siteUrl: 'https://majojeans.example',
+  siteUrl: 'https://majojeans.pages.dev',
   announcement:
-    'Envíos a todo Colombia · Pedidos por WhatsApp · Catálogo de ejemplo',
+    'Envíos a todo Colombia · Pedidos por WhatsApp · @majo_jeansoficial',
   shippingNotes:
     'Los tiempos y costos de envío se confirman al cerrar el pedido por WhatsApp.',
   returnsNotes:
     'Política de cambios de ejemplo: 8 días hábiles con prenda sin uso y etiquetas.',
   seo: {
-    title: 'Majo Jeans | Tienda de jeans en Colombia',
+    title: 'Majo Jeans | La moda también es una forma de adorar',
     description:
-      'Tienda en línea de Majo Jeans. Jeans, bermudas y chaquetas de mezclilla. Precios en COP. Pedidos por WhatsApp.',
-    ogImage: '/images/hero-denim.jpg',
+      'Tienda oficial de Majo Jeans. Jeans, bermudas y chaquetas. Precios en COP. Pedidos por WhatsApp. Instagram @majo_jeansoficial.',
+    ogImage: '/images/logo-majo-jeans.png',
   },
   categories: [
     { id: 'jeans', label: 'Jeans', slug: 'jeans' },
@@ -49,11 +49,10 @@ export const storeConfig = {
     { id: 'chaquetas', label: 'Chaquetas', slug: 'chaquetas' },
     { id: 'novedades', label: 'Novedades', slug: 'novedades' },
   ],
-  /** Tallas internacionales usadas en tiendas de Colombia */
   sizes: ['XS', 'S', 'M', 'L', 'XL'] as const,
-  /** Paleta de ejemplo inspirada en mezclilla (no tomada del Instagram) */
+  /** Paleta tomada del logo oficial: beige cálido + oro */
   paletteNote:
-    'Paleta de ejemplo: índigo, arena y marfil. Ajusta en index.css si el IG muestra otros tonos.',
+    'Beige crema y oro metálico del logo oficial de Majo Jeans.',
 } as const
 
 export type StoreCategoryId = (typeof storeConfig.categories)[number]['id']

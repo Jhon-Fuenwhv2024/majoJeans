@@ -16,12 +16,12 @@ export function ProductCard({ product }: { product: Product }) {
           loading="lazy"
         />
         {product.isNew && (
-          <span className="absolute left-3 top-3 bg-[var(--ink)] px-2 py-1 text-[10px] tracking-[0.14em] text-white uppercase">
+          <span className="absolute left-3 top-3 bg-[var(--accent)] px-2 py-1 text-[10px] font-semibold tracking-[0.14em] text-[var(--ink)] uppercase">
             Nuevo
           </span>
         )}
         {product.isExample && (
-          <span className="absolute right-3 top-3 bg-amber-100/95 px-2 py-1 text-[10px] tracking-[0.08em] text-amber-900 uppercase">
+          <span className="absolute right-3 top-3 bg-[var(--paper)]/95 px-2 py-1 text-[10px] tracking-[0.08em] text-[var(--muted)] uppercase ring-1 ring-[var(--line)]">
             Ejemplo
           </span>
         )}
